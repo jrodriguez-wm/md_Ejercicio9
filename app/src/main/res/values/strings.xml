@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">MD_ViewPager</string>
+    <string name="app_name">MD_ImageSlideShow</string>
+    <string name="basket_images">Basket images</string>
 </resources>
