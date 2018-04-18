@@ -1,6 +1,7 @@
 package mx.com.webmaps.md_ejercicio9;
 
 import android.content.Context;
+import android.support.design.widget.Snackbar;
 import android.support.v4.view.PagerAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -41,7 +42,7 @@ public class SlideShowAdapter extends PagerAdapter{
     }
 
     @Override
-    public Object instantiateItem(ViewGroup container, int position) {
+    public Object instantiateItem(ViewGroup container, final int position) {
         inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
         View view = inflater.inflate(R.layout.slideshow_layout,container,false);
@@ -51,6 +52,13 @@ public class SlideShowAdapter extends PagerAdapter{
         //img.setImageResource(images[position]);
 
         Glide.with(context).load(images[position]).into(img);
+
+        img.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Snackbar.make(v,"Image" + (position+1), Snackbar.LENGTH_LONG).show();
+            }
+        });
 
         container.addView(view);
 
